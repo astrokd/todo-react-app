@@ -1,0 +1,41 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.subheader,
+legend {
+  text-align: left;
+}
+
+.App-todolist li {
+  list-style-type: none;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.completed {
+  color: green;
+}
+
+.notcompleted {
+  color: blue;
+}
+
+span.diff {
+  padding-right: 10px;
+}
+
+span.todo {
+  flex: 2 auto;
+}
+
+.App-todolist li:nth-child(odd) {
+  background-color: lightgray;
+}
+.App-todolist li:nth-child(even) {
+  background-color: white;
+}
