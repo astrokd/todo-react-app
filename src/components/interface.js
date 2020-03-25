@@ -10,9 +10,21 @@ function Interface() {
   const [todoItems, error, isLoading] = useFetch();
 
   async function postToDoItem () {
-    console.log('values in Post',values)
-    values.status = true;
+    values.status = false;
     values.assigned = "Kevin";
+    const raw = await fetch('http://localhost:3001/items', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(values)
+    })
+    const response = await raw.json();
+    console.log(response);
+  }
+
+  async function putToDoItem () {
+    values.status = false;
     const raw = await fetch('http://localhost:3001/items', {
       method: 'post',
       headers: {
@@ -30,27 +42,6 @@ function Interface() {
     handleTextInput,
     values,
   ] = useForm(postToDoItem)
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   newItem.completed = false;
-  //   console.log("in submit:", Object.values(newItem));
-  //   setToDoItems([...todoItems, newItem]);
-  //   const newCount = count + 1;
-  //   setCount(newCount);
-  //   e.target.reset();
-  //   setNewItem({});
-  // };
-
-  const handleChangeofToDo = e => {
-    // newItem.todo = e.target.value;
-    // // setNewItem(newItem);
-  };
-
-  const handleChangeofDifficulty = e => {
-    // newItem.difficulty = e.target.value;
-    // setNewItem(newItem);
-  };
 
   const handleDelete = e => {
     // todoItems.splice(e, 1);

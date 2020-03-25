@@ -5,7 +5,6 @@ function useForm (callback) {
 
   const handleSubmit = e => {
     if (e) e.preventDefault();
-    console.log('e in submit',e.target);
     callback(values);
   };
 
@@ -21,11 +20,9 @@ function useForm (callback) {
   };
 
   const handleTextInput = {
-    arbitrarykey: 'arbitraryValue',
     onChange: function (e) {
       e.persist();
       setValues(values => {
-        console.log('e.target',e.target);
         const { name, value } = e.target;
         return {
           ...values,
