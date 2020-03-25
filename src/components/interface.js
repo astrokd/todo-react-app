@@ -4,8 +4,6 @@ import useFetch from '../hooks/useFetch'
 import useForm from '../hooks/useForm'
 
 function Interface() {
-  // let [todoItems, setToDoItems] = useState([]);
-  // const [newItem, setNewItem] = useState({});
   let [count, setCount] = useState(0);
   const [todoItems, error, isLoading] = useFetch();
 
@@ -23,14 +21,14 @@ function Interface() {
     console.log(response);
   }
 
-  async function putToDoItem () {
+  async function putToDoItem (item) {
     values.status = false;
-    const raw = await fetch('http://localhost:3001/items', {
-      method: 'post',
+    const raw = await fetch('http://localhost:3001/items/'+item.id, {
+      method: 'put',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(values)
+      body: JSON.stringify(item)
     })
     const response = await raw.json();
     console.log(response);
@@ -56,17 +54,15 @@ function Interface() {
   ] = useForm(postToDoItem)
 
   const handleDelete = e => {
-    console.log('in handle delete ---',e)
     deleteToDoItem(e)
-    // todoItems.splice(e, 1);
-    // setToDoItems([...todoItems]);
-    // const newCount = count - 1;
-    // setCount(newCount);
+    const newCount = count - 1;
+    setCount(newCount);
   };
 
   const handleCompleted = e => {
-    // todoItems[e].completed = !todoItems[e].completed;
-    // setToDoItems([...todoItems]);
+    e.status = !e.status;
+    console.log('in handle Completed -- ',e)
+    putToDoItem(e)
   };
 
   useEffect(() => {
@@ -110,7 +106,7 @@ function Interface() {
             >
               <span className="todo">{item.description}</span>
               <span className="diff">DIFFICULTY: {item.difficulty}</span>
-              <button onClick={() => handleCompleted(item.id)}>
+              <button onClick={() => handleCompleted(item)}>
                 Completed:{item.status.toString()}
               </button>
               <button onClick={() => handleDelete(item.id)}>del</button>
