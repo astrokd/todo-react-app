@@ -62,6 +62,7 @@ function Interface() {
   };
 
   useEffect(() => {
+    setCount(todoItems.length);
     document.title = `ToDo App | ${count} item`;
   });
 
