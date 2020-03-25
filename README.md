@@ -27,4 +27,5 @@ Useing React 16 with Hooks and Custom Hooks
 
 # Useful links
 
-[MDN Spread Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+- [MDN Spread Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+- [StackOverflow: Fetch PUT and DELETE examples](https://stackoverflow.com/questions/40284338/javascript-fetch-delete-and-put-requests)

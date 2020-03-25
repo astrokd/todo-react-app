@@ -36,6 +36,18 @@ function Interface() {
     console.log(response);
   }
 
+  async function deleteToDoItem (id) {
+    const raw = await fetch('http://localhost:3001/items/'+ id, {
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(values)
+    })
+    const response = await raw.json();
+    console.log(response);
+  }
+
   const [
     handleSubmit,
     handleChange,
@@ -44,6 +56,8 @@ function Interface() {
   ] = useForm(postToDoItem)
 
   const handleDelete = e => {
+    console.log('in handle delete ---',e)
+    deleteToDoItem(e)
     // todoItems.splice(e, 1);
     // setToDoItems([...todoItems]);
     // const newCount = count - 1;
