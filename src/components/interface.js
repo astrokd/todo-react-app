@@ -10,6 +10,9 @@ function Interface() {
   const [todoItems, error, isLoading] = useFetch();
 
   async function postToDoItem () {
+    console.log('values in Post',values)
+    values.status = true;
+    values.assigned = "Kevin";
     const raw = await fetch('http://localhost:3001/items', {
       method: 'post',
       headers: {
@@ -74,19 +77,19 @@ function Interface() {
         <form onSubmit={handleSubmit}>
           <fieldset>
             <legend>To Do List input:</legend>
-            <label htmlFor="listitem">To Do item:</label>
+            <label htmlFor="description">To Do item:</label>
             <input
-              onChange={handleChangeofToDo}
               type="text"
-              id="listitem"
-              name="listitem"
+              id="description"
+              name="description"
+              onChange={handleChange}
             />
             <label htmlFor="difficulty">Difficulty:</label>
             <input
-              onChange={handleChangeofDifficulty}
               type="number"
               id="difficulty"
               name="difficulty"
+              onChange={handleChange}
             />
             <input type="submit" value="Add to do item" />
           </fieldset>

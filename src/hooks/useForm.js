@@ -5,6 +5,7 @@ function useForm (callback) {
 
   const handleSubmit = e => {
     if (e) e.preventDefault();
+    console.log('e in submit',e.target);
     callback(values);
   };
 
@@ -24,6 +25,7 @@ function useForm (callback) {
     onChange: function (e) {
       e.persist();
       setValues(values => {
+        console.log('e.target',e.target);
         const { name, value } = e.target;
         return {
           ...values,
@@ -31,7 +33,6 @@ function useForm (callback) {
         };
       });
     }
-    
   };
 
   return [
