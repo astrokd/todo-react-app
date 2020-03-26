@@ -11,21 +11,21 @@
       "id": 2,
       "description": "Read",
       "difficulty": "2",
-      "status": true,
+      "status": false,
       "assigned": "Kevin"
     },
     {
       "id": 3,
       "description": "Lab",
       "difficulty": "8",
-      "status": true,
+      "status": false,
       "assigned": "Kevin"
     },
     {
       "id": 4,
       "description": "Challenge",
       "difficulty": "5",
-      "status": false,
+      "status": true,
       "assigned": "Kevin"
     },
     {
