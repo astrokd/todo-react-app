@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Alert, Spinner, Table } from "react-bootstrap"
+import { Alert, Spinner, Table, Button } from "react-bootstrap"
 
 import useFetch from '../hooks/useFetch'
 import useForm from '../hooks/useForm'
@@ -70,14 +70,17 @@ function ToDoList() {
         </thead>
         <tbody>
           {todoItems.map(item => (
-            <tr>
+            <tr
+              className={item.status ? "completed" : "notcompleted"}
+              key={item.id}
+            >
               <td>{item.description}</td>
               <td>{item.assigned}</td>
               <td>{item.difficulty}</td>
-              <td><button onClick={() => handleCompleted(item)}>
+              <td><Button className="btn btn-secondary" onClick={() => handleCompleted(item)}>
                Completed:{item.status.toString()}
-             </button></td>
-              <td><button onClick={() => handleDelete(item.id)}>del</button></td>
+             </Button></td>
+              <td><Button className="btn btn-warning" onClick={() => handleDelete(item.id)}>del</Button></td>
             </tr>
           ))}
         </tbody>

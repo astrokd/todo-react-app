@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
+import { Button, Form } from 'react-bootstrap'
 
 import useForm from '../hooks/useForm'
 
@@ -36,26 +37,30 @@ function Interface() {
     <main className="Interface">
       <title>To Do List | {count}</title>
       <div className="App-form">
-        <form onSubmit={handleSubmit}>
-          <fieldset>
-            <legend>To Do List input:</legend>
-            <label htmlFor="description">To Do item:</label>
+        <Form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <div className="input-group-prepend">
+              <span className="input-group-text">To Do Description and Difficulty</span>
+            </div>
             <input
               type="text"
               id="description"
               name="description"
+              aria-label="Description"
+              className="form-control"
               onChange={handleChange}
             />
-            <label htmlFor="difficulty">Difficulty:</label>
             <input
               type="number"
               id="difficulty"
               name="difficulty"
+              aria-label="Difficulty"
+              className="form-control"
               onChange={handleChange}
             />
-            <input type="submit" value="Add to do item" />
-          </fieldset>
-        </form>
+            <input type="submit" value="Add to do item" className="form-control"/>
+          </div>
+        </Form>
       </div>
     </main>
   );
