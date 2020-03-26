@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react"
-import { Alert, Spinner, Table, Button } from "react-bootstrap"
+import React, { useState, useEffect, useContext } from "react"
+import { Alert, Table, Button } from "react-bootstrap"
 
 import useFetch from '../hooks/useFetch'
 import useForm from '../hooks/useForm'
 
-function ToDoList() {
+function ToDoList({ todoItems, error, isLoading }) {
   let [count, setCount] = useState(0);
-  const [todoItems, error, isLoading] = useFetch();
+  // const [todoItems, error, isLoading] = useFetch();
 
   async function putToDoItem (item) {
     values.status = false;
@@ -60,22 +60,22 @@ function ToDoList() {
       {isLoading ? <div>Loading</div> : 
       <Table striped size="sm">
         <thead className="thead-dark">
-          <tr>
-            <th>To Do Description</th>
-            <th>Assigned</th>
+          <tr className="d-flex">
+            <th className="text-left flex-sm-grow-1">To Do Description</th>
+            <th className="flex-grow-*">Assigned</th>
             <th>Difficulty</th>
-            <th>Status</th>
-            <th>Delete</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {todoItems.map(item => (
             <tr
-              className={item.status ? "completed" : "notcompleted"}
+              className={item.status ? "completed d-flex" : "notcompleted d-flex"}
               key={item.id}
             >
-              <td>{item.description}</td>
-              <td>{item.assigned}</td>
+              <td className="text-left flex-sm-grow-1">{item.description}</td>
+              <td className="flex-grow-*">{item.assigned}</td>
               <td>{item.difficulty}</td>
               <td><Button className="btn btn-secondary" onClick={() => handleCompleted(item)}>
                Completed:{item.status.toString()}

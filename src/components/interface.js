@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
-import { Button, Form } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 
 import useForm from '../hooks/useForm'
 
-function Interface() {
+function Interface({ addNewToDoItem }) {
   let [count, setCount] = useState(0);
 
   async function postToDoItem () {
@@ -17,7 +17,7 @@ function Interface() {
       body: JSON.stringify(values)
     })
     const response = await raw.json();
-    console.log(response);
+    addNewToDoItem(response);
   }
 
   const [
@@ -38,7 +38,7 @@ function Interface() {
       <title>To Do List | {count}</title>
       <div className="App-form">
         <Form onSubmit={handleSubmit}>
-          <div className="input-group">
+          <div className="input-group d-flex">
             <div className="input-group-prepend">
               <span className="input-group-text">To Do Description and Difficulty</span>
             </div>
@@ -58,7 +58,7 @@ function Interface() {
               className="form-control"
               onChange={handleChange}
             />
-            <input type="submit" value="Add to do item" className="form-control"/>
+            <input type="submit" value="Add to do item" className="form-control btn btn-primary"/>
           </div>
         </Form>
       </div>

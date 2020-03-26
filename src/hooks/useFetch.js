@@ -19,6 +19,10 @@ function useFetch () {
     }
   };
 
+  function addNewToDoItem (item) {
+    setToDos([...todoItems, item]);
+  }
+
   useEffect(() => {
     fetchToDos();
   }, []);
@@ -27,6 +31,7 @@ function useFetch () {
     todoItems,
     error,
     isLoading,
+    addNewToDoItem
   ];
 }
 

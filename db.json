@@ -41,6 +41,27 @@
       "status": true,
       "assigned": "Kevin",
       "id": 6
+    },
+    {
+      "description": "Eat",
+      "difficulty": "2",
+      "status": false,
+      "assigned": "Kevin",
+      "id": 7
+    },
+    {
+      "description": "Eat",
+      "difficulty": "1",
+      "status": false,
+      "assigned": "Kevin",
+      "id": 8
+    },
+    {
+      "description": "Shower",
+      "difficulty": "2",
+      "status": false,
+      "assigned": "Kevin",
+      "id": 9
     }
   ]
 }

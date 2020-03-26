@@ -6,13 +6,20 @@ import Interface from "./components/interface";
 import Footer from "./components/footer";
 import ToDoList from "./components/todolist";
 
+import useFetch from './hooks/useFetch'
+
 export default function App() {
+  const [todoItems,isLoading,error,addNewToDoItem] = useFetch()
   return (
     <Container className="App">
       <Header value={"todos:"} />
       <h4 className="subheader">Add your ToDo items here!</h4>
-      <Interface />
-      <ToDoList />
+      <Interface addNewToDoItem={addNewToDoItem} />
+      <ToDoList 
+        todoItems={todoItems}
+        isLoading={isLoading}
+        error={error}
+      />
       <Footer />
     </Container>
   );
