@@ -12,10 +12,14 @@ Useing React 16 with Hooks and Custom Hooks
 - [x] - Connect to running API server
   - [x] - On load display all of the to do items from db
   - [x] - When adding an item issue a POST
-  - [ ] - When marking todo items complete issue a PUT
-  - [ ] - When deleting items issue a DELETE
+  - [x] - When marking todo items complete issue a PUT
+  - [x] - When deleting items issue a DELETE
 - [x] - Use the `useForm()` hook to manage add item form
-- [x] - create a `useFetch()` custom hook to abstract API calls
+- [x] - Create a `useFetch()` custom hook to abstract API calls
+- [ ] - Show maximum number of items on screen
+- [ ] - Display only items to be completed
+- [ ] - Testing
+
 
 
 # Setup and start
