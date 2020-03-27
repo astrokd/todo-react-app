@@ -9,7 +9,7 @@ import ToDoList from "./components/todolist";
 import useFetch from './hooks/useFetch'
 
 export default function App() {
-  const [todoItems,isLoading,error,addNewToDoItem] = useFetch()
+  const [todoItems,error,isLoading,addNewToDoItem,deletionHandler,completionHandler] = useFetch()
   return (
     <Container className="App">
       <Header value={"todos:"} />
@@ -19,6 +19,9 @@ export default function App() {
         todoItems={todoItems}
         isLoading={isLoading}
         error={error}
+        addNewToDoItem={addNewToDoItem}
+        deletionHandler={deletionHandler}
+        completionHandler={completionHandler}
       />
       <Footer />
     </Container>

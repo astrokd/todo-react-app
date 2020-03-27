@@ -40,12 +40,13 @@ function Interface({ addNewToDoItem }) {
         <Form onSubmit={handleSubmit}>
           <div className="input-group d-flex">
             <div className="input-group-prepend">
-              <span className="input-group-text">To Do Description and Difficulty</span>
+              <span className="input-group-text">To Do:</span>
             </div>
             <input
               type="text"
               id="description"
               name="description"
+              placeholder="To Do Description"
               aria-label="Description"
               className="form-control"
               onChange={handleChange}
@@ -54,6 +55,9 @@ function Interface({ addNewToDoItem }) {
               type="number"
               id="difficulty"
               name="difficulty"
+              min="0"
+              max="10"
+              placeholder="To Do Difficulty"
               aria-label="Difficulty"
               className="form-control"
               onChange={handleChange}
