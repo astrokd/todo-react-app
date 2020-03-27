@@ -72,8 +72,8 @@ function ToDoList({
             <th className="text-left flex-sm-grow-1">To Do Description</th>
             <th className="flex-grow-*">Assigned</th>
             <th>Difficulty</th>
-            <th></th>
-            <th></th>
+            <th>          </th>
+            <th>   </th>
           </tr>
         </thead>
         <tbody>

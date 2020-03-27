@@ -11,7 +11,7 @@
       "id": 2,
       "description": "Read",
       "difficulty": "2",
-      "status": false,
+      "status": true,
       "assigned": "Kevin"
     },
     {

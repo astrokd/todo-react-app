@@ -5,6 +5,8 @@ import Header from "./components/header";
 import Interface from "./components/interface";
 import Footer from "./components/footer";
 import ToDoList from "./components/todolist";
+import Settings from './context/Settings';
+import PaginationSetter from './components/pagination'
 
 import useFetch from './hooks/useFetch'
 
