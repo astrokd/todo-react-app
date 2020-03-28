@@ -34,6 +34,20 @@
       "difficulty": "1",
       "status": true,
       "assigned": "Kevin"
+    },
+    {
+      "description": "Eat",
+      "difficulty": "1",
+      "status": false,
+      "assigned": "Kevin",
+      "id": 6
+    },
+    {
+      "description": "Sleep",
+      "difficulty": "1",
+      "status": false,
+      "assigned": "Kevin",
+      "id": 7
     }
   ]
 }

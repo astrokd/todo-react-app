@@ -8,14 +8,6 @@ legend {
   text-align: left;
 }
 
-.App-todolist {
-  /* list-style-type: none; */
-  /* margin: 0 auto; */
-  /* text-align: left; */
-  /* display: flex; */
-  /* flex-direction: row; */
-}
-
 .completed {
   color: green;
 }

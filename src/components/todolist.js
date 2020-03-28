@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
-import { Alert, Table, Button } from "react-bootstrap"
+import { Alert, Table, Spinner, Button } from "react-bootstrap"
 import { SettingsContext } from '../context/Settings'
 import useForm from '../hooks/useForm'
 
@@ -11,23 +11,37 @@ function ToDoList({
   deletionHandler,
   completionHandler,
 }) {
-  const settings = useContext(SettingsContext)
   let [count, setCount] = useState(0);
+  const settings = useContext(SettingsContext)
+  const [page, setPage] = useState(0);
+  let perPageCount = settings.resultsPerPage
+  let start = page * perPageCount
+  let end = start + perPageCount
+  let currentList = todoItems.slice(start, end)
+
   // const [todoItems, error, isLoading] = useFetch();
 
-  const [
-    values,
-  ] = useForm()
+  // const [
+  //   values,
+  // ] = useForm()
 
   useEffect(() => {
     setCount(todoItems.length);
-    document.title = `ToDo App | ${count} item`;
+    console.log('in use effect, perPageCount:',perPageCount)
+    start = page * perPageCount
+    end = start + perPageCount
+    currentList = todoItems.slice(start, end)
+    const headerCount = `ToDo App | ${count} item`
+    // I don't think I should be doing it this way but...
+    document.title = headerCount;
+    document.getElementById("header-counter").innerHTML = headerCount
   });
   
   return (
     <div className="App-todolist">
       {error && <Alert variant="danger">{error}</Alert>}
-      {isLoading ? <div>Loading</div> : 
+      {isLoading ? <Spinner animation="grow" /> : (
+      <>
       <Table striped size="sm">
         <thead className="thead-dark">
           <tr className="d-flex">
@@ -39,11 +53,8 @@ function ToDoList({
           </tr>
         </thead>
         <tbody>
-          {todoItems.map(item => (
-            <tr
-              className={item.status ? "completed d-flex" : "notcompleted d-flex"}
-              key={item.id}
-            >
+          {currentList.map(item => (
+            <tr className={item.status ? "completed d-flex" : "notcompleted d-flex"} key={item.id}>
               <td className="text-left flex-sm-grow-1">{item.description}</td>
               <td className="flex-grow-*">{item.assigned}</td>
               <td>{item.difficulty}</td>
@@ -55,7 +66,11 @@ function ToDoList({
           ))}
         </tbody>
       </Table>
-      }
+      {page > 0 && <Button className="btn btn-secondary" onClick={() => setPage(page - 1)}>Previous</Button>}
+      {todoItems.length > end && <Button className="btn btn-secondary" onClick={() => setPage(page + 1)}>Next</Button>}
+      </>
+     )
+     }
     </div>
   );
 }
