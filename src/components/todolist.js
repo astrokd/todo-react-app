@@ -14,7 +14,7 @@ function ToDoList({
   let [count, setCount] = useState(0);
   const settings = useContext(SettingsContext)
   const [page, setPage] = useState(0);
-  let perPageCount = settings.resultsPerPage
+  let perPageCount = parseInt(settings.resultsPerPage)
   let start = page * perPageCount
   let end = start + perPageCount
   let currentList = todoItems.slice(start, end)
@@ -28,9 +28,12 @@ function ToDoList({
   useEffect(() => {
     setCount(todoItems.length);
     console.log('in use effect, perPageCount:',perPageCount)
-    start = page * perPageCount
-    end = start + perPageCount
-    currentList = todoItems.slice(start, end)
+    // perPageCount = settings.resultsPerPage
+    // start = page * perPageCount
+    // end = start + perPageCount
+    // currentList = todoItems.slice(start, end)
+    console.log('start:',start)
+    console.log('end:',end)
     const headerCount = `ToDo App | ${count} item`
     // I don't think I should be doing it this way but...
     document.title = headerCount;
