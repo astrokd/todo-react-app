@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> renders correctly 1`] = `
+<div
+  className="App container"
+>
+  <header
+    className="App-header"
+  >
+    <h1
+      id="header-counter"
+    >
+      To Do List | 
+      todos:0
+       
+    </h1>
+  </header>
+  <span>
+    This is the ToDo app
+  </span>
+  <main
+    className="Interface"
+  >
+    <title>
+      To Do List | 
+      0
+    </title>
+    <div
+      className="App-form"
+    >
+      <form
+        className=""
+        onSubmit={[Function]}
+      >
+        <div
+          className="input-group d-flex"
+        >
+          <div
+            className="input-group-prepend"
+          >
+            <span
+              className="input-group-text"
+            >
+              To Do:
+            </span>
+          </div>
+          <input
+            aria-label="Description"
+            className="form-control"
+            id="description"
+            name="description"
+            onChange={[Function]}
+            placeholder="To Do Description"
+            type="text"
+          />
+          <input
+            aria-label="Difficulty"
+            className="form-control"
+            id="difficulty"
+            max="10"
+            min="0"
+            name="difficulty"
+            onChange={[Function]}
+            placeholder="To Do Difficulty"
+            type="number"
+          />
+          <input
+            className="form-control btn btn-primary"
+            type="submit"
+            value="Add to do item"
+          />
+        </div>
+      </form>
+    </div>
+  </main>
+  <div
+    className="App-todolist"
+  >
+    
+    <table
+      className="table table-sm table-striped"
+    >
+      <thead
+        className="thead-dark"
+      >
+        <tr
+          className="d-flex"
+        >
+          <th
+            className="text-left flex-sm-grow-1"
+          >
+            To Do Description
+          </th>
+          <th
+            className="flex-grow-*"
+          >
+            Assigned
+          </th>
+          <th>
+            Difficulty
+          </th>
+          <th>
+            Completion Status
+          </th>
+          <th>
+            delete
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
+  <div>
+    Number of items to display per page:
+    <input
+      max={30}
+      min={1}
+      onChange={[Function]}
+      placeholder={10}
+      type="number"
+    />
+  </div>
+  <footer
+    className="App-footer"
+  >
+    <h6>
+      JavaScript-401d34-Lab31 To Do List App
+    </h6>
+  </footer>
+</div>
+`;

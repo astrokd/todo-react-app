@@ -36,8 +36,8 @@ function ToDoList({
     console.log('end:',end)
     const headerCount = `ToDo App | ${count} item`
     // I don't think I should be doing it this way but...
-    document.title = headerCount;
-    document.getElementById("header-counter").innerHTML = headerCount
+    // document.title = headerCount;
+    // document.getElementById("header-counter").innerHTML = headerCount
   });
   
   return (

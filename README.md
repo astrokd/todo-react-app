@@ -3,7 +3,7 @@ Useing React 16 with Hooks and Custom Hooks
 
 - [x] - Have a header, main, and footer
 - [x] - To Do form to enter items to do
-  - [ ] - form should have status and difficulty
+  - [x] - form should have status and difficulty
 - [x] - To Do List list items and have a complete status
   - [x] - style items to complete differently
   - [x] - toggle complete status of items
@@ -16,7 +16,7 @@ Useing React 16 with Hooks and Custom Hooks
   - [x] - When deleting items issue a DELETE
 - [x] - Use the `useForm()` hook to manage add item form
 - [x] - Create a `useFetch()` custom hook to abstract API calls
-- [ ] - Show maximum number of items on screen
+- [x] - Show maximum number of items on screen
 - [ ] - Display only items to be completed
 - [ ] - Testing
 

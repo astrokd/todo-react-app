@@ -16,6 +16,7 @@ export default function App() {
     <Settings>
       <Container className="App">
         <Header value={`todos:${count}`} />
+        <span>This is the ToDo app</span>
         <Interface addNewToDoItem={addNewToDoItem} />
         <ToDoList 
           todoItems={todoItems}
