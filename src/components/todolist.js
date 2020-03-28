@@ -14,10 +14,13 @@ function ToDoList({
   let [count, setCount] = useState(0);
   const settings = useContext(SettingsContext)
   const [page, setPage] = useState(0);
+  const [filter, setFilter] = useState(false)
   let perPageCount = parseInt(settings.resultsPerPage)
   let start = page * perPageCount
   let end = start + perPageCount
   let currentList = todoItems.slice(start, end)
+  let filterList = currentList.filter(list => list.status === false)
+  let itemList = filter ? filterList : currentList
 
   // const [todoItems, error, isLoading] = useFetch();
 
@@ -25,15 +28,19 @@ function ToDoList({
   //   values,
   // ] = useForm()
 
+  function filterHandler (filterStatus) {
+    setFilter(!filterStatus)
+  }
+
   useEffect(() => {
     setCount(todoItems.length);
-    console.log('in use effect, perPageCount:',perPageCount)
+    // console.log('in use effect, perPageCount:',perPageCount)
     // perPageCount = settings.resultsPerPage
     // start = page * perPageCount
     // end = start + perPageCount
     // currentList = todoItems.slice(start, end)
-    console.log('start:',start)
-    console.log('end:',end)
+    // console.log('start:',start)
+    // console.log('end:',end)
     const headerCount = `ToDo App | ${count} item`
     // I don't think I should be doing it this way but...
     // document.title = headerCount;
@@ -56,7 +63,7 @@ function ToDoList({
           </tr>
         </thead>
         <tbody>
-          {currentList.map(item => (
+          {itemList.map(item => (
             <tr className={item.status ? "completed d-flex" : "notcompleted d-flex"} key={item.id}>
               <td className="text-left flex-sm-grow-1">{item.description}</td>
               <td className="flex-grow-*">{item.assigned}</td>
@@ -69,6 +76,7 @@ function ToDoList({
           ))}
         </tbody>
       </Table>
+      <Button className="btn btn-secondary" onClick={() => filterHandler(filter)}>Show only incomplete</Button>
       {page > 0 && <Button className="btn btn-secondary" onClick={() => setPage(page - 1)}>Previous</Button>}
       {todoItems.length > end && <Button className="btn btn-secondary" onClick={() => setPage(page + 1)}>Next</Button>}
       </>

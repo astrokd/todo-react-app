@@ -38,7 +38,7 @@
     {
       "description": "Eat",
       "difficulty": "1",
-      "status": false,
+      "status": true,
       "assigned": "Kevin",
       "id": 6
     },

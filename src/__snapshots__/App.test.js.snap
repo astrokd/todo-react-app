@@ -109,6 +109,14 @@ exports[`<App /> renders correctly 1`] = `
       </thead>
       <tbody />
     </table>
+    <button
+      className="btn btn-secondary btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Show only incomplete
+    </button>
   </div>
   <div>
     Number of items to display per page:
