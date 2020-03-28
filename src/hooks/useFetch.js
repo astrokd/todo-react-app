@@ -4,6 +4,7 @@ function useFetch () {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [todoItems, setToDos] = useState([]);
+  let [count, setCount] = useState(todoItems.length);
 
   const fetchToDos = async () => {
     setIsLoading(true);
@@ -17,10 +18,12 @@ function useFetch () {
     } finally {
       setIsLoading(false);
     }
+    setCount(todoItems.length);
   };
 
   function addNewToDoItem (item) {
     setToDos([...todoItems, item]);
+    setCount(todoItems.length + 1);
   }
 
   async function completionHandler (item) {
@@ -54,16 +57,17 @@ function useFetch () {
     setIsLoading(true);
     setError(false);
     try {
-      const raw = await fetch('http://localhost:3001/items/'+ id, {
+      await fetch('http://localhost:3001/items/'+ id, {
         method: 'delete',
         headers: {
           'Content-Type': 'application/json',
         },
       });
-      const response = await raw.json();
-      console.log(response);
+      // const response = await raw.json();
+      // console.log('in usefetch delete',response);
       const newToDoItems = todoItems.filter(obj => obj.id !== id );
       setToDos(newToDoItems);
+      setCount(newToDoItems.length);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -83,9 +87,12 @@ function useFetch () {
 
   useEffect(() => {
     fetchToDos();
+    // setCount(todoItems.length);
+    document.title = `ToDo App | ${count} item`;
   }, []);
 
   return [
+    count,
     todoItems,
     error,
     isLoading,

@@ -11,21 +11,24 @@ import PaginationSetter from './components/pagination'
 import useFetch from './hooks/useFetch'
 
 export default function App() {
-  const [todoItems,error,isLoading,addNewToDoItem,deletionHandler,completionHandler] = useFetch()
+  const [count,todoItems,error,isLoading,addNewToDoItem,deletionHandler,completionHandler] = useFetch()
   return (
-    <Container className="App">
-      <Header value={"todos:"} />
-      <h4 className="subheader">Add your ToDo items here!</h4>
-      <Interface addNewToDoItem={addNewToDoItem} />
-      <ToDoList 
-        todoItems={todoItems}
-        isLoading={isLoading}
-        error={error}
-        addNewToDoItem={addNewToDoItem}
-        deletionHandler={deletionHandler}
-        completionHandler={completionHandler}
-      />
-      <Footer />
-    </Container>
+    <Settings>
+      <Container className="App">
+        <Header value={`todos:${count}`} />
+        <h4 className="subheader">Add your ToDo items here!</h4>
+        <Interface addNewToDoItem={addNewToDoItem} />
+        <ToDoList 
+          todoItems={todoItems}
+          isLoading={isLoading}
+          error={error}
+          addNewToDoItem={addNewToDoItem}
+          deletionHandler={deletionHandler}
+          completionHandler={completionHandler}
+        />
+        <PaginationSetter />
+        <Footer />
+      </Container>
+    </Settings>
   );
 }

@@ -18,7 +18,7 @@
       "id": 3,
       "description": "Lab",
       "difficulty": "8",
-      "status": false,
+      "status": true,
       "assigned": "Kevin"
     },
     {
@@ -32,7 +32,7 @@
       "id": 5,
       "description": "Journal",
       "difficulty": "1",
-      "status": false,
+      "status": true,
       "assigned": "Kevin"
     }
   ]
