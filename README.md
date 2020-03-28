@@ -17,8 +17,8 @@ Useing React 16 with Hooks and Custom Hooks
 - [x] - Use the `useForm()` hook to manage add item form
 - [x] - Create a `useFetch()` custom hook to abstract API calls
 - [x] - Show maximum number of items on screen
-- [ ] - Display only items to be completed
-- [ ] - Testing
+- [x] - Display only items to be completed
+- [x] - Testing
 
 
 
