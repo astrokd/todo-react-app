@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
+import { Form } from 'react-bootstrap'
 
-import useFetch from '../hooks/useFetch'
 import useForm from '../hooks/useForm'
 
-function Interface() {
+function Interface({ addNewToDoItem }) {
   let [count, setCount] = useState(0);
-  const [todoItems, error, isLoading] = useFetch();
 
   async function postToDoItem () {
     values.status = false;
@@ -18,32 +17,7 @@ function Interface() {
       body: JSON.stringify(values)
     })
     const response = await raw.json();
-    console.log(response);
-  }
-
-  async function putToDoItem (item) {
-    values.status = false;
-    const raw = await fetch('http://localhost:3001/items/'+item.id, {
-      method: 'put',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(item)
-    })
-    const response = await raw.json();
-    console.log(response);
-  }
-
-  async function deleteToDoItem (id) {
-    const raw = await fetch('http://localhost:3001/items/'+ id, {
-      method: 'delete',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(values)
-    })
-    const response = await raw.json();
-    console.log(response);
+    addNewToDoItem(response);
   }
 
   const [
@@ -53,20 +27,8 @@ function Interface() {
     values,
   ] = useForm(postToDoItem)
 
-  const handleDelete = e => {
-    deleteToDoItem(e)
-    const newCount = count - 1;
-    setCount(newCount);
-  };
-
-  const handleCompleted = e => {
-    e.status = !e.status;
-    console.log('in handle Completed -- ',e)
-    putToDoItem(e)
-  };
-
   useEffect(() => {
-    setCount(todoItems.length);
+    // setCount(todoItems.length);
     document.title = `ToDo App | ${count} item`;
   });
 
@@ -75,46 +37,34 @@ function Interface() {
     <main className="Interface">
       <title>To Do List | {count}</title>
       <div className="App-form">
-        <form onSubmit={handleSubmit}>
-          <fieldset>
-            <legend>To Do List input:</legend>
-            <label htmlFor="description">To Do item:</label>
+        <Form onSubmit={handleSubmit}>
+          <div className="input-group d-flex">
+            <div className="input-group-prepend">
+              <span className="input-group-text">To Do:</span>
+            </div>
             <input
               type="text"
               id="description"
               name="description"
+              placeholder="To Do Description"
+              aria-label="Description"
+              className="form-control"
               onChange={handleChange}
             />
-            <label htmlFor="difficulty">Difficulty:</label>
             <input
               type="number"
               id="difficulty"
               name="difficulty"
+              min="0"
+              max="10"
+              placeholder="To Do Difficulty"
+              aria-label="Difficulty"
+              className="form-control"
               onChange={handleChange}
             />
-            <input type="submit" value="Add to do item" />
-          </fieldset>
-        </form>
-        <div className="App-todolist">
-        {error && <div>{error}</div>}
-        {isLoading ? <div>Loading</div> : 
-        <ul>
-          {todoItems.map((item, index) => (
-            <li
-              className={item.status ? "completed" : "notcompleted"}
-              key={item.id}
-            >
-              <span className="todo">{item.description}</span>
-              <span className="diff">DIFFICULTY: {item.difficulty}</span>
-              <button onClick={() => handleCompleted(item)}>
-                Completed:{item.status.toString()}
-              </button>
-              <button onClick={() => handleDelete(item.id)}>del</button>
-            </li>
-          ))}
-        </ul>
-        }
-        </div>
+            <input type="submit" value="Add to do item" className="form-control btn btn-primary"/>
+          </div>
+        </Form>
       </div>
     </main>
   );
