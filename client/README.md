@@ -1,6 +1,10 @@
 # ToDo List App
 Useing React 16 with Hooks and Custom Hooks
 
+# Screen Shot
+
+![Screen Shot](ScreenShot.png)
+
 - [x] - Have a header, main, and footer
 - [x] - To Do form to enter items to do
   - [x] - form should have status and difficulty
