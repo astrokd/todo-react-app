@@ -20,8 +20,8 @@ Useing React 16 with Hooks and Custom Hooks
 - [x] - Display only items to be completed
 - [x] - Testing
 - [ ] - Implement RBAC rules
-  - [ ] - logged in users with read can see count
-  - [ ] - logged in users with read can see To Do list
+  - [x] - logged in users with read can see count
+  - [x] - logged in users with read can see To Do list
   - [ ] - logged in users with delete can mark delete
   - [ ] - logged in users with update can mark items completed
   - [ ] - logged in users with create can create new items

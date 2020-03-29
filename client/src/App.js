@@ -25,7 +25,9 @@ export default function App() {
           <Auth>
             <Header value={`todos:${count}`} />
             <span>This is the ToDo app</span>
-            <Interface addNewToDoItem={addNewToDoItem} />
+            <Auth permission="create">
+              <Interface addNewToDoItem={addNewToDoItem} />
+            </Auth>
             <ToDoList 
               todoItems={todoItems}
               isLoading={isLoading}
