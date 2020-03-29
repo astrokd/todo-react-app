@@ -1,5 +1,5 @@
 import React from 'react'
-import { LoginContext } from './context'
+import { LoginContext } from '../context/AuthRules'
 import If from './If'
 
 class LoginForm extends React.Component {
