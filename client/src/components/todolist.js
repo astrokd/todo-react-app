@@ -3,6 +3,8 @@ import { Alert, Table, Spinner, Button } from "react-bootstrap"
 import { SettingsContext } from '../context/Settings'
 import useForm from '../hooks/useForm'
 
+import Auth from './Auth'
+
 function ToDoList({ 
   todoItems, 
   error, 
@@ -58,8 +60,8 @@ function ToDoList({
             <th className="text-left flex-sm-grow-1">To Do Description</th>
             <th className="flex-grow-*">Assigned</th>
             <th>Difficulty</th>
-            <th>Completion Status</th>
-            <th>delete</th>
+            <th><Auth permission="update">Completion Status</Auth></th>
+            <th><Auth permission="delete">delete</Auth></th>
           </tr>
         </thead>
         <tbody>
@@ -68,10 +70,10 @@ function ToDoList({
               <td className="text-left flex-sm-grow-1">{item.description}</td>
               <td className="flex-grow-*">{item.assigned}</td>
               <td>{item.difficulty}</td>
-              <td><Button className="btn btn-secondary" onClick={() => completionHandler(item)}>
+              <td><Auth permission="update"><Button className="btn btn-secondary" onClick={() => completionHandler(item)}>
                Completed:{item.status.toString()}
-             </Button></td>
-              <td><Button className="btn btn-warning" onClick={() => deletionHandler(item.id)}>del</Button></td>
+             </Button></Auth></td>
+              <td><Auth permission="delete"><Button className="btn btn-warning" onClick={() => deletionHandler(item.id)}>del</Button></Auth></td>
             </tr>
           ))}
         </tbody>
