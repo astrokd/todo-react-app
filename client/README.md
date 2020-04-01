@@ -1,6 +1,10 @@
 # ToDo List App
 Useing React 16 with Hooks and Custom Hooks
 
+# Screen Shot
+
+![Screen Shot](ScreenShot.png)
+
 - [x] - Have a header, main, and footer
 - [x] - To Do form to enter items to do
   - [x] - form should have status and difficulty
@@ -19,6 +23,12 @@ Useing React 16 with Hooks and Custom Hooks
 - [x] - Show maximum number of items on screen
 - [x] - Display only items to be completed
 - [x] - Testing
+- [x] - Implement RBAC rules
+  - [x] - logged in users with read can see count
+  - [x] - logged in users with read can see To Do list
+  - [x] - logged in users with delete can mark delete
+  - [x] - logged in users with update can mark items completed
+  - [x] - logged in users with create can create new items
 
 
 
@@ -27,6 +37,8 @@ Useing React 16 with Hooks and Custom Hooks
 - `json-server --port 3001 --watch db.json`
 - (from another terminal window) `npm run start` Go to localhost:3000
 - `http get :3001/items` will return contents of db.json
+- Test client with `npm run start`
+- Run client with `npm run dev`
 
 
 # Useful links

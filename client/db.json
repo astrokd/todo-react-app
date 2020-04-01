@@ -57,25 +57,11 @@
       "id": 8
     },
     {
-      "description": "Walk",
-      "difficulty": "2",
-      "status": false,
-      "assigned": "Kevin",
-      "id": 9
-    },
-    {
       "description": "Review",
       "difficulty": "3",
       "status": false,
       "assigned": "Kevin",
       "id": 10
-    },
-    {
-      "description": "Clean",
-      "difficulty": "1",
-      "status": false,
-      "assigned": "Kevin",
-      "id": 11
     }
   ]
 }
